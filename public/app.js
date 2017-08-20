@@ -5,10 +5,10 @@ function addArticle(insertDiv, article) {
 
 //Create a bootstrap panel for each article
     var articlePanel = $("<div>").attr({
-        "data-id": article._id,
+        // "data-id": article._id,
         "class": "panel panel-default"
     })
-    // console.log(article._id)
+    console.log(article._id)
 
     //Create the required heading div and insert title text
     var headingDiv = $("<div>").attr({
@@ -16,6 +16,7 @@ function addArticle(insertDiv, article) {
     })
 
     var title = $("<h3>").attr({
+        "data-id": article._id,
         "class": "panel-title"
     })
 
@@ -76,6 +77,8 @@ $(document).on("click", "h3", function() {
     $("#commentsDiv").empty();
     // Save the id from the  tag
     var thisId = $(this).attr("data-id");
+    // console.log(this);
+    // console.log(thisId);
 
     // Now make an ajax call for the Article
     $.ajax({
